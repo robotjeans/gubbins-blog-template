@@ -1,14 +1,17 @@
 import CategoryLink from "@/components/common/CategoryLink";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 const HomeHero: React.FC = () => {
   return (
     <SC.HomeHero>
       <SC.Container>
-        <SC.ImageWrap>
-          <Image src="/p077kvlc.jpg" alt="Featured Image" layout="fill" />
-        </SC.ImageWrap>
+        <Link href="/">
+          <SC.ImageWrap>
+            <Image src="/p077kvlc.jpg" alt="Featured Image" layout="fill" />
+          </SC.ImageWrap>
+        </Link>
         <SC.ContentWrap>
           <h3>
             <CategoryLink href="/" title="Community" />
@@ -32,7 +35,8 @@ const SC = {
   `,
   Container: styled("div")`
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
   `,
   ImageWrap: styled("div")`
@@ -43,8 +47,8 @@ const SC = {
     align-self: stretch;
 
     ${({ theme }) => theme.mediaQueries.md} {
-      max-width: 66.6667%;
-      flex: 0 0 66.6667%;
+      width: 58.33333333%;
+      flex: 0 0 58.33333333%;
     }
   `,
   ContentWrap: styled("div")`
@@ -55,8 +59,8 @@ const SC = {
     box-sizing: border-box;
 
     ${({ theme }) => theme.mediaQueries.md} {
-      max-width: 33.3333%;
-      flex: 0 0 33.3333%;
+      max-width: 41.66666667%;
+      flex: 0 0 41.66666667%;
       padding: 120px 100px 180px 90px;
     }
   `,
