@@ -39,7 +39,7 @@ const SC = {
     top: 0;
     right: 0;
     left: 0;
-    background-color: hsla(0, 0%, 100%, 0);
+    background-color: hsla(0, 0%, 100%, 1);
     position: fixed;
     height: 128px;
     display: -webkit-flex;
