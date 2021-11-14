@@ -1,16 +1,23 @@
+import Head from "next/head";
 import styled from "styled-components";
 import Header from "@/components/common/Header";
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<{ title?: string }> = ({ children, title = "RobotJeans" }) => {
   return (
-    <SC.Layout>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <SC.Container>{children}</SC.Container>
-      </div>
-    </SC.Layout>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta property="og:title" content={title} key="title" />
+      </Head>
+      <SC.Layout>
+        <div>
+          <Header />
+        </div>
+        <div>
+          <SC.Container>{children}</SC.Container>
+        </div>
+      </SC.Layout>
+    </>
   );
 };
 
