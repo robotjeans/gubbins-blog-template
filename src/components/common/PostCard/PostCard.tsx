@@ -19,7 +19,7 @@ const PostCard: React.FC<Props> = ({ post, key }) => {
             width="100%"
             height="100%"
             layout="responsive"
-            objectFit="contain"
+            objectFit="cover"
           />
         </Link>
         <SC.Meta>
@@ -65,6 +65,7 @@ const SC = {
     background-color: #f4f4f4;
     vertical-align: middle;
     border: 2px solid #e2e2e2;
+    background-repeat: no-repeat;
   `,
   Meta: styled("div")`
     padding-top: 2.5rem;
@@ -76,7 +77,7 @@ const SC = {
     left: 0.1rem;
     word-break: break-word;
     hyphens: none;
-    ont-size: 0.79rem;
+    font-size: 0.59rem;
     letter-spacing: 0.26em;
     line-height: 2;
     text-transform: uppercase;
@@ -91,17 +92,18 @@ const SC = {
   Title: styled("h1")`
     text-align: center;
     padding: 0 1.4rem;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin: 1.3rem 0 0.9rem;
+    color: #000000;
   `,
   Excerpt: styled("div")`
     text-align: center;
     padding: 0 1.4rem;
-    font-size: 1.5rem;
+    font-size: 1.08rem;
     line-height: 1.6;
     letter-spacing: 0.01em;
     font-weight: 300;
-    color: #4b4b4b;
+    color: ${({ theme }) => theme.colors.subTitle};
 
     p {
       margin: 0 0 3.5rem;
@@ -110,6 +112,7 @@ const SC = {
 
     .more-link {
       padding-top: 1.1rem;
+      color: ${({ theme }) => theme.colors.primary};
     }
   `,
 };
