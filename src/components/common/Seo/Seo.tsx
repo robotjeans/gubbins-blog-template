@@ -8,10 +8,10 @@ interface ISeoProps {
 
 const Seo: React.FC<ISeoProps> = ({
   title = "A Flash Blog",
-  description = "RobotJeans | A flash blog about everything.",
+  description = "IRRATIONAL | A flash blog about everything.",
   image = "https://robotjeans.vercel.app/featured.png",
 }) => {
-  const siteTitle = `RobotJeans | ${title}`;
+  const siteTitle = `IRRATIONAL | ${title}`;
 
   return (
     <Head>

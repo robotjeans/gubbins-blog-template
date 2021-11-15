@@ -1,12 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
 
-const Header: React.FC = () => {
+const Header: React.FC = (props) => {
   return (
-    <SC.Header>
+    <SC.Header id={props.id}>
       <SC.Container>
         <SC.Flex>
-          <SC.Logo></SC.Logo>
+          <SC.Logo>
+            <Image
+              src="/svgs/IRRATIONAL.svg"
+              alt="irrational green dot"
+              width="168px"
+              height="45px"
+            />
+          </SC.Logo>
           <SC.Nav>
             <SC.NavLinks>
               <SC.NavLink>
@@ -39,7 +47,7 @@ const SC = {
     top: 0;
     right: 0;
     left: 0;
-    background-color: hsla(0, 0%, 100%, 1);
+    background-color: ${({ theme }) => theme.colors.background};
     position: fixed;
     height: 128px;
     display: -webkit-flex;
@@ -47,6 +55,10 @@ const SC = {
     display: flex;
     will-change: transform;
     z-index: 9999;
+
+    &.header--scrolled {
+      height: 64px;
+    }
   `,
   Container: styled("div")`
     width: 1300px;
@@ -56,10 +68,11 @@ const SC = {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
   `,
   Logo: styled("div")`
-    width: 142px;
-    height: 56px;
+    width: 168px;
+    height: 45px;
     transform-origin: left center;
   `,
   Nav: styled("nav")`

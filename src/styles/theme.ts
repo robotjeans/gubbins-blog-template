@@ -5,7 +5,7 @@ const theme = {
     background: "#ffffff",
     text: "#000000",
     subTitle: "#8a8b91",
-    primary: "#fe2c55",
+    primary: "#00d7a0",
   },
   mediaQueries: {
     xs: `@media screen and (min-width: ${breakpoints[0]})`,
