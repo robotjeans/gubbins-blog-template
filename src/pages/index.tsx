@@ -1,7 +1,8 @@
 import Seo from "@/components/common/Seo";
 import HomeHero from "@/components/home/HomeHero";
 import HomeRecent from "@/components/home/HomeRecent";
-import { getPosts } from "@/services";
+import { articlesQuery } from "@/services";
+import { client } from "@/utils";
 
 const mockData = [
   {
@@ -60,8 +61,8 @@ const mockData = [
   },
 ];
 
-const Home = ({ posts }): JSX.Element => {
-  console.log(posts);
+const Home = ({ articles }): JSX.Element => {
+  console.log(articles);
   return (
     <>
       <Seo />
@@ -76,9 +77,9 @@ const Home = ({ posts }): JSX.Element => {
 export default Home;
 
 export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
+  const articles = (await client.fetch(articlesQuery)) || [];
 
   return {
-    props: { posts },
+    props: { articles },
   };
 }
