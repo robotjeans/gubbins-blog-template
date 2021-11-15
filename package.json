@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sanity:start": "cd irrational && sanity start -p 3333"
   },
   "dependencies": {
     "graphql": "^16.0.1",
