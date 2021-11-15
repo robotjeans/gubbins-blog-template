@@ -22,7 +22,6 @@ export default HomeRecent;
 const SC = {
   HomeRecent: styled("section")`
     position: relative;
-    margin-top: 60px;
     background-color: #ffffff;
     padding-bottom: 48px;
   `,

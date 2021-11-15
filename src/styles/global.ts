@@ -6,18 +6,20 @@ export default createGlobalStyle`
         outline: none;
     }
 
-    html {
-        text-size-adjust: 100%;
-    }
+    html {}
 
     body {
-        margin: 0;
-        color: #4c4c4c;
         font-family: 'Lato', sans-serif;
-        font-size: .9375rem;
-        line-height: 1.75;
+        font-size: 1.9rem;
+        font-weight: 300;
+        line-height: 1.6;
+        color: #141414;
+        text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
-        -webkit-tap-highlight-color: transparent;
+        -moz-osx-font-smoothing: grayscale;
+        word-wrap: break-word;
+        hyphens: auto;
+        padding-bottom: 6.6rem;
     }
   
     ul {

@@ -1,25 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
 
-const Header: React.FC = () => {
-  const headerRef = useRef<HTMLHeadElement>(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "hero--boundry",
-        start: "top -80",
-        end: "+=500",
-        toggleClass: { className: "header--scroll", targets: headerRef.current },
-      },
-    });
-  }, []);
-
+const Header: React.FC = (props) => {
   return (
-    <SC.Header ref={headerRef}>
+    <SC.Header id={props.id}>
       <SC.Container>
         <SC.Flex>
           <SC.Logo>
