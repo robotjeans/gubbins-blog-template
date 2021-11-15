@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
 
 const Header: React.FC = () => {
@@ -6,7 +7,14 @@ const Header: React.FC = () => {
     <SC.Header>
       <SC.Container>
         <SC.Flex>
-          <SC.Logo></SC.Logo>
+          <SC.Logo>
+            <Image
+              src="/svgs/IRRATIONAL.svg"
+              alt="irrational green dot"
+              width="168px"
+              height="45px"
+            />
+          </SC.Logo>
           <SC.Nav>
             <SC.NavLinks>
               <SC.NavLink>
@@ -56,10 +64,11 @@ const SC = {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
   `,
   Logo: styled("div")`
-    width: 142px;
-    height: 56px;
+    width: 168px;
+    height: 45px;
     transform-origin: left center;
   `,
   Nav: styled("nav")`

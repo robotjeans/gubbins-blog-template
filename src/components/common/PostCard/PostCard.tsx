@@ -5,22 +5,24 @@ import { Post } from "@/types";
 
 interface Props {
   post: Post;
-  key?: string;
 }
 
-const PostCard: React.FC<Props> = ({ post, key }) => {
+const PostCard: React.FC<Props> = ({ post }) => {
   return (
-    <SC.PostCard key={key}>
+    <SC.PostCard>
       <SC.Container>
         <Link href={post.href} passHref>
-          <SC.Image
-            src={post.source}
-            alt={post.alt}
-            width="100%"
-            height="100%"
-            layout="responsive"
-            objectFit="cover"
-          />
+          <a>
+            <Image
+              src={post.source}
+              alt={post.alt}
+              className="featured-image"
+              width="100%"
+              height="100%"
+              layout="responsive"
+              objectFit="cover"
+            />
+          </a>
         </Link>
         <SC.Meta>
           <span className="meta-cats">{post.category}</span>
@@ -58,14 +60,6 @@ const SC = {
   `,
   Container: styled("div")`
     padding-bottom: 5.9rem;
-  `,
-  Image: styled(Image)`
-    max-width: 100%;
-    height: auto;
-    background-color: #f4f4f4;
-    vertical-align: middle;
-    border: 2px solid #e2e2e2;
-    background-repeat: no-repeat;
   `,
   Meta: styled("div")`
     padding-top: 2.5rem;

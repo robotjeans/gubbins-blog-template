@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styled from "styled-components";
 import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
-const Layout: React.FC<{ title?: string }> = ({ children, title = "RobotJeans" }) => {
+const Layout: React.FC<{ title?: string }> = ({ children, title = "IRRATIONAL" }) => {
   return (
     <>
       <Head>
@@ -15,6 +16,9 @@ const Layout: React.FC<{ title?: string }> = ({ children, title = "RobotJeans" }
         </div>
         <div>
           <SC.Container>{children}</SC.Container>
+        </div>
+        <div>
+          <Footer />
         </div>
       </SC.Layout>
     </>

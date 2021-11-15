@@ -38,6 +38,7 @@ const SC = {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0 16px;
   `,
   ImageWrap: styled("div")`
     position: relative;
