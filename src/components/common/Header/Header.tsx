@@ -1,10 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
 
 const Header: React.FC = () => {
+  const headerRef = useRef<HTMLHeadElement>(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "hero--boundry",
+        start: "top -80",
+        end: "+=500",
+        toggleClass: { className: "header--scroll", targets: headerRef.current },
+      },
+    });
+  }, []);
+
   return (
-    <SC.Header>
+    <SC.Header ref={headerRef}>
       <SC.Container>
         <SC.Flex>
           <SC.Logo>
@@ -47,7 +62,7 @@ const SC = {
     top: 0;
     right: 0;
     left: 0;
-    background-color: hsla(0, 0%, 100%, 1);
+    background-color: ${({ theme }) => theme.colors.background};
     position: fixed;
     height: 128px;
     display: -webkit-flex;
@@ -55,6 +70,10 @@ const SC = {
     display: flex;
     will-change: transform;
     z-index: 9999;
+
+    &.header--scrolled {
+      height: 64px;
+    }
   `,
   Container: styled("div")`
     width: 1300px;
