@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "irrational"
+    "name": "gubbins"
   },
   "api": {
-    "projectId": "rdu89epp",
+    "projectId": "yagyokpz",
     "dataset": "production"
   },
   "plugins": [

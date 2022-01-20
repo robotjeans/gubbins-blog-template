@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import styled from "styled-components";
 
 const Header: React.FC = (props) => {
   return (
