@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 const Layout: React.FC<{ title?: string }> = ({
   children,
@@ -22,22 +23,11 @@ const Layout: React.FC<{ title?: string }> = ({
   }, []);
 
   return (
-    <div className="">
-      <Head>
-        <title>{title}</title>
-        <meta property="og:title" content={title} key="title" />
-      </Head>
-
+    <>
       <Header isSticky={scrollY > 100} />
-
-      <main
-        className={`${
-          scrollY <= 100 ? "pt-[110px] md:pt-[128px]" : "pt-[64px] md:pt-[80px]"
-        }`}
-      >
-        {children}
-      </main>
-    </div>
+      <main>{children}</main>
+      <Footer />
+    </>
   );
 };
 
