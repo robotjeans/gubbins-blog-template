@@ -1,109 +1,55 @@
 import Link from "next/link";
-import Image from "next/image";
 
-const Header: React.FC = (props) => {
+const Header: React.FC<{ isSticky?: boolean }> = ({ isSticky }) => {
   return (
-    <SC.Header id={props.id}>
-      <SC.Container>
-        <SC.Flex>
-          <SC.Logo>
-            <Image
-              src="/svgs/IRRATIONAL.svg"
-              alt="irrational green dot"
-              width="168px"
-              height="45px"
-            />
-          </SC.Logo>
-          <SC.Nav>
-            <SC.NavLinks>
-              <SC.NavLink>
-                <Link href="/">Link A</Link>
-              </SC.NavLink>
-              <SC.NavLink>
-                <Link href="/">Link B</Link>
-              </SC.NavLink>
-              <SC.NavLink>
-                <Link href="/">Link C</Link>
-              </SC.NavLink>
-              <SC.NavLink>
-                <Link href="/">Link D</Link>
-              </SC.NavLink>
-              <SC.NavLink>
-                <Link href="/">Link E</Link>
-              </SC.NavLink>
-            </SC.NavLinks>
-          </SC.Nav>
-        </SC.Flex>
-      </SC.Container>
-    </SC.Header>
+    <header className="fixed top-0 left-0 right-0 bg-blue-600 z-30">
+      <div
+        className={`pt-3 pb-3 md:pt-4 md:pb-4 xl:pt-5 xl:pb-5 flex items-center transition-all ease-in-out duration-500 overflow-visible ${
+          !isSticky
+            ? "h-[110px] md:h-[128px] 2xl:h-[128px]"
+            : "h-[64px] md:h-[80px] 2xl:h-[90px]"
+        }`}
+      >
+        <div className="max-w-7xl w-full m-auto">
+          <div className="flex flex-wrap items-center relative">
+            <div className="flex flex-wrap items-center">
+              <div className="md:border-r mr-5 pr-5 transition-all ease-in-out duration-500 border-opacity-30 border-white">
+                <Link href="/">
+                  <a
+                    aria-label="Navigate to home page"
+                    className="block py-2 ring-white"
+                  >
+                    <p className="transition-all ease-in-out duration-500 w-24 md:w-32 xl:w-40">
+                      Logo
+                    </p>
+                  </a>
+                </Link>
+              </div>
+              <div className="overflow-hidden">
+                <span className="text-sm font-medium hidden md:block transform transition-transform ease-in-out duration-500 translate-x-0">
+                  Past, Present & Future Blog
+                </span>
+              </div>
+            </div>
+            <div className="ml-auto">
+              <div className="flex items-center space-x-1 relative z-10">
+                <Link href="/signin">
+                  <a className="text-center font-bold px-4 md:px-6 py-2 text-blue-600 ring-blue-600 hidden md:inline-block group overflow-hidden transition-colors ease-in-out duration-500 relative z-10 bg-white hover:text-white">
+                    <span className="block relative z-10">Sign In</span>
+                    <div className="absolute bottom-0 left-0 w-full h-0 bg-blue-900 group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 
 export default Header;
 
-const SC = {
-  Header: styled("header")`
-    top: 0;
-    right: 0;
-    left: 0;
-    background-color: ${({ theme }) => theme.colors.background};
-    position: fixed;
-    height: 128px;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: flex;
-    will-change: transform;
-    z-index: 9999;
-
-    &.header--scrolled {
-      height: 64px;
-    }
-  `,
-  Container: styled("div")`
-    width: 1300px;
-    margin: auto;
-  `,
-  Flex: styled("div")`
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-  `,
-  Logo: styled("div")`
-    width: 168px;
-    height: 45px;
-    transform-origin: left center;
-  `,
-  Nav: styled("nav")`
-    display: block;
-  `,
-  NavLinks: styled("ul")`
-    padding: 0;
-  `,
-  NavLink: styled("li")`
-    font-size: 0.9375rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #181e22;
-    letter-spacing: 0.075em;
-    line-height: 1;
-    font-family: "Lato", sans-serif;
-    position: relative;
-    display: inline-block;
-
-    &:not(:last-of-type) {
-      margin-right: 52px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      position: relative;
-      -webkit-transition: color 0.3s ease;
-      transition: color 0.3s ease;
-      font-family: inherit;
-      font-size: inherit;
-    }
-  `,
+Header.defaultProps = {
+  isSticky: false,
 };
