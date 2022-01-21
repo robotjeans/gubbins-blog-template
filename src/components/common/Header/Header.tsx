@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header: React.FC<{ isSticky?: boolean }> = ({ isSticky }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-blue-600 z-30">
+    <header className="fixed top-0 left-0 right-0 bg-white z-30">
       <div
         className={`pt-3 pb-3 md:pt-4 md:pb-4 xl:pt-5 xl:pb-5 flex items-center transition-all ease-in-out duration-500 overflow-visible ${
           !isSticky
@@ -13,15 +13,18 @@ const Header: React.FC<{ isSticky?: boolean }> = ({ isSticky }) => {
         <div className="max-w-7xl w-full m-auto">
           <div className="flex flex-wrap items-center relative">
             <div className="flex flex-wrap items-center">
-              <div className="md:border-r mr-5 pr-5 transition-all ease-in-out duration-500 border-opacity-30 border-white">
+              <div className="md:border-r mr-5 pr-5 transition-all ease-in-out duration-500 border-opacity-30 border-teal-400">
                 <Link href="/">
                   <a
                     aria-label="Navigate to home page"
                     className="block py-2 ring-white"
                   >
-                    <p className="transition-all ease-in-out duration-500 w-24 md:w-32 xl:w-40">
-                      Logo
-                    </p>
+                    <div className="transition-all ease-in-out duration-500 w-24 md:w-32 xl:w-40">
+                      <img
+                        src="/svgs/iirkd_logo_text.svg"
+                        alt="irrkd logo text"
+                      />
+                    </div>
                   </a>
                 </Link>
               </div>
