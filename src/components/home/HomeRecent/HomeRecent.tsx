@@ -1,33 +1,19 @@
 import PostCard from "@/components/common/PostCard";
 import { Post } from "@/types";
-import styled from "styled-components";
 
-interface Props {
+interface HomeRecentProps {
   initialPosts: Post[];
 }
 
-const HomeRecent: React.FC<Props> = ({ initialPosts }) => {
+const HomeRecent: React.FC<HomeRecentProps> = ({ initialPosts }) => {
   return (
-    <SC.HomeRecent>
-      <SC.Container>
+    <section className="py-8 md:py-10">
+      <div className="container flex flex-wrap">
         {initialPosts.length &&
           initialPosts.map((post) => <PostCard key={post.title} post={post} />)}
-      </SC.Container>
-    </SC.HomeRecent>
+      </div>
+    </section>
   );
 };
 
 export default HomeRecent;
-
-const SC = {
-  HomeRecent: styled("section")`
-    position: relative;
-    background-color: #ffffff;
-    padding-bottom: 48px;
-  `,
-  Container: styled("div")`
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  `,
-};
