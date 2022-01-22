@@ -1,16 +1,17 @@
-import PostCard from "@/components/common/PostCard";
-import { Post } from "@/types";
+import PostTile from "@/components/common/PostTile";
+import { Post } from "@/typings";
 
 interface HomeRecentProps {
-  initialPosts: Post[];
+  posts: [Post];
 }
 
-const HomeRecent: React.FC<HomeRecentProps> = ({ initialPosts }) => {
+const HomeRecent: React.FC<HomeRecentProps> = ({ posts }) => {
   return (
     <section className="py-8 md:py-10">
-      <div className="container flex flex-wrap">
-        {initialPosts.length &&
-          initialPosts.map((post) => <PostCard key={post.title} post={post} />)}
+      <div className="container flex flex-wrap w-full h-full">
+        {posts.map((post) => (
+          <PostTile key={post._id} {...post} />
+        ))}
       </div>
     </section>
   );

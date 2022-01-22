@@ -3,18 +3,19 @@ import HomeBanner from "@/components/home/HomeBanner";
 import HomeCTA from "@/components/home/HomeCTA";
 import { sanityClient } from "@/lib/sanity";
 import { Post } from "@/typings";
+import HomeRecent from "@/components/home/HomeRecent";
 
 interface HomeProps {
   posts: [Post];
 }
 
 const Home: React.FC<NextPage & HomeProps> = ({ posts }) => {
-  console.log(posts);
   return (
     <>
       <HomeBanner />
       <HomeCTA />
       {/* FEATURED ARTICLES */}
+      <HomeRecent posts={posts} />
     </>
   );
 };
